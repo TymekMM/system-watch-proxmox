@@ -1,0 +1,262 @@
+{
+  "blockdevices": [
+    {
+      "name": "sda",
+      "path": "/dev/sda",
+      "type": "disk",
+      "wwn": null,
+      "serial": "EXAMPLE-SERIAL-1",
+      "tran": null,
+      "rota": true,
+      "model": "Example device 1",
+      "fstype": null,
+      "mountpoints": [],
+      "children": [
+        {
+          "name": "sda1",
+          "path": "/dev/sda1",
+          "type": "part",
+          "wwn": null,
+          "serial": null,
+          "tran": null,
+          "rota": true,
+          "model": null,
+          "fstype": null,
+          "mountpoints": []
+        },
+        {
+          "name": "sda2",
+          "path": "/dev/sda2",
+          "type": "part",
+          "wwn": null,
+          "serial": null,
+          "tran": null,
+          "rota": true,
+          "model": null,
+          "fstype": "vfat",
+          "mountpoints": [
+            "/boot/efi"
+          ]
+        },
+        {
+          "name": "sda3",
+          "path": "/dev/sda3",
+          "type": "part",
+          "wwn": null,
+          "serial": null,
+          "tran": null,
+          "rota": true,
+          "model": null,
+          "fstype": "LVM2_member",
+          "mountpoints": [],
+          "children": [
+            {
+              "name": "pve-swap",
+              "path": "/dev/pve-swap",
+              "type": "lvm",
+              "wwn": null,
+              "serial": null,
+              "tran": null,
+              "rota": true,
+              "model": null,
+              "fstype": "swap",
+              "mountpoints": [
+                "[SWAP]"
+              ]
+            },
+            {
+              "name": "pve-root",
+              "path": "/dev/pve-root",
+              "type": "lvm",
+              "wwn": null,
+              "serial": null,
+              "tran": null,
+              "rota": true,
+              "model": null,
+              "fstype": "ext4",
+              "mountpoints": [
+                "/"
+              ]
+            },
+            {
+              "name": "pve-data_tmeta",
+              "path": "/dev/pve-data_tmeta",
+              "type": "lvm",
+              "wwn": null,
+              "serial": null,
+              "tran": null,
+              "rota": true,
+              "model": null,
+              "fstype": null,
+              "mountpoints": [],
+              "children": [
+                {
+                  "name": "pve-data",
+                  "path": "/dev/pve-data",
+                  "type": "lvm",
+                  "wwn": null,
+                  "serial": null,
+                  "tran": null,
+                  "rota": true,
+                  "model": null,
+                  "fstype": null,
+                  "mountpoints": []
+                }
+              ]
+            },
+            {
+              "name": "pve-data_tdata",
+              "path": "/dev/pve-data_tdata",
+              "type": "lvm",
+              "wwn": null,
+              "serial": null,
+              "tran": null,
+              "rota": true,
+              "model": null,
+              "fstype": null,
+              "mountpoints": [],
+              "children": [
+                {
+                  "name": "pve-data",
+                  "path": "/dev/pve-data",
+                  "type": "lvm",
+                  "wwn": null,
+                  "serial": null,
+                  "tran": null,
+                  "rota": true,
+                  "model": null,
+                  "fstype": null,
+                  "mountpoints": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "sdb",
+      "path": "/dev/sdb",
+      "type": "disk",
+      "wwn": null,
+      "serial": "EXAMPLE-SERIAL-2",
+      "tran": null,
+      "rota": true,
+      "model": "Example device 2",
+      "fstype": null,
+      "mountpoints": [],
+      "children": [
+        {
+          "name": "sdb1",
+          "path": "/dev/sdb1",
+          "type": "part",
+          "wwn": null,
+          "serial": null,
+          "tran": null,
+          "rota": true,
+          "model": null,
+          "fstype": "zfs_member",
+          "mountpoints": []
+        },
+        {
+          "name": "sdb9",
+          "path": "/dev/sdb9",
+          "type": "part",
+          "wwn": null,
+          "serial": null,
+          "tran": null,
+          "rota": true,
+          "model": null,
+          "fstype": null,
+          "mountpoints": []
+        }
+      ]
+    },
+    {
+      "name": "sdc",
+      "path": "/dev/sdc",
+      "type": "disk",
+      "wwn": null,
+      "serial": "EXAMPLE-SERIAL-3",
+      "tran": null,
+      "rota": true,
+      "model": "Example device 3",
+      "fstype": null,
+      "mountpoints": [],
+      "children": [
+        {
+          "name": "sdc1",
+          "path": "/dev/sdc1",
+          "type": "part",
+          "wwn": null,
+          "serial": null,
+          "tran": null,
+          "rota": true,
+          "model": null,
+          "fstype": "zfs_member",
+          "mountpoints": []
+        },
+        {
+          "name": "sdc9",
+          "path": "/dev/sdc9",
+          "type": "part",
+          "wwn": null,
+          "serial": null,
+          "tran": null,
+          "rota": true,
+          "model": null,
+          "fstype": null,
+          "mountpoints": []
+        }
+      ]
+    },
+    {
+      "name": "sr0",
+      "path": "/dev/sr0",
+      "type": "rom",
+      "wwn": null,
+      "serial": "EXAMPLE-SERIAL-4",
+      "tran": "sata",
+      "rota": false,
+      "model": "Example device 4",
+      "fstype": null,
+      "mountpoints": []
+    },
+    {
+      "name": "zd0",
+      "path": "/dev/zd0",
+      "type": "disk",
+      "wwn": null,
+      "serial": null,
+      "tran": null,
+      "rota": false,
+      "model": null,
+      "fstype": null,
+      "mountpoints": []
+    },
+    {
+      "name": "zd16",
+      "path": "/dev/zd16",
+      "type": "disk",
+      "wwn": null,
+      "serial": null,
+      "tran": null,
+      "rota": false,
+      "model": null,
+      "fstype": null,
+      "mountpoints": []
+    },
+    {
+      "name": "zd32",
+      "path": "/dev/zd32",
+      "type": "disk",
+      "wwn": null,
+      "serial": null,
+      "tran": null,
+      "rota": false,
+      "model": null,
+      "fstype": null,
+      "mountpoints": []
+    }
+  ]
+}

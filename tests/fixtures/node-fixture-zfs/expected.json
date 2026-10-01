@@ -1,0 +1,205 @@
+{
+  "devices": [
+    {
+      "id": "disk:serial:Example device 1:EXAMPLE-SERIAL-1",
+      "identity_stability": "persistent",
+      "path": "/dev/sda",
+      "aliases": [],
+      "model": "Example device 1",
+      "serial": "EXAMPLE-SERIAL-1",
+      "transport": "unknown",
+      "media": "hdd",
+      "power_state": "unknown",
+      "zfs_membership": "nonmember",
+      "pool_ids": [],
+      "temperature_ids": [],
+      "usage": "system"
+    },
+    {
+      "id": "disk:serial:Example device 2:EXAMPLE-SERIAL-2",
+      "identity_stability": "persistent",
+      "path": "/dev/sdb",
+      "aliases": [
+        "/dev/disk/by-id/example-drive-4-part1"
+      ],
+      "model": "Example device 2",
+      "serial": "EXAMPLE-SERIAL-2",
+      "transport": "unknown",
+      "media": "hdd",
+      "power_state": "unknown",
+      "zfs_membership": "member",
+      "pool_ids": [
+        "zpool:1000002"
+      ],
+      "temperature_ids": [],
+      "usage": "unknown"
+    },
+    {
+      "id": "disk:serial:Example device 3:EXAMPLE-SERIAL-3",
+      "identity_stability": "persistent",
+      "path": "/dev/sdc",
+      "aliases": [
+        "/dev/disk/by-id/example-drive-2-part1"
+      ],
+      "model": "Example device 3",
+      "serial": "EXAMPLE-SERIAL-3",
+      "transport": "unknown",
+      "media": "hdd",
+      "power_state": "unknown",
+      "zfs_membership": "member",
+      "pool_ids": [
+        "zpool:1000001"
+      ],
+      "temperature_ids": [],
+      "usage": "unknown"
+    }
+  ],
+  "zfs": {
+    "inventory_state": "ok",
+    "pool_count": 2,
+    "pools": [
+      {
+        "id": "zpool:1000001",
+        "name": "Example pool 1",
+        "state": "ONLINE",
+        "health": "ok",
+        "reading": {
+          "observed_at": "2026-09-27T12:00:00Z",
+          "age_seconds": 0,
+          "stale_after_seconds": 3,
+          "freshness": "fresh",
+          "last_attempt_at": "2026-09-27T12:00:00Z",
+          "last_attempt_status": "ok",
+          "reason": null
+        },
+        "size_bytes": "532575944704",
+        "allocated_bytes": "3440640",
+        "free_bytes": "532572504064",
+        "capacity_percent": 0.0,
+        "fragmentation_percent": 0.0,
+        "vdevs": [
+          {
+            "id": "vdev:2000001",
+            "parent_id": null,
+            "kind": "root",
+            "allocation_class": "data",
+            "name": "Example vdev 1",
+            "state": "ONLINE",
+            "device_id": null,
+            "errors": {
+              "read": "0",
+              "write": "0",
+              "checksum": "0"
+            }
+          },
+          {
+            "id": "vdev:2000002",
+            "parent_id": "vdev:2000001",
+            "kind": "disk",
+            "allocation_class": "data",
+            "name": "Example vdev 2",
+            "state": "ONLINE",
+            "device_id": "disk:serial:Example device 3:EXAMPLE-SERIAL-3",
+            "errors": {
+              "read": "0",
+              "write": "0",
+              "checksum": "0"
+            }
+          }
+        ],
+        "scan": {
+          "type": "unknown",
+          "state": "unknown",
+          "started_at": null,
+          "finished_at": null,
+          "progress_percent": null,
+          "scanned_bytes": null,
+          "issued_bytes": null,
+          "total_bytes": null,
+          "scan_bytes_per_second": null,
+          "issue_bytes_per_second": null,
+          "eta_seconds": null,
+          "repaired_bytes": null,
+          "errors": null,
+          "raw_text": null
+        },
+        "permanent_errors": {
+          "state": "none",
+          "count": "0",
+          "details_available": false
+        }
+      },
+      {
+        "id": "zpool:1000002",
+        "name": "Example pool 2",
+        "state": "ONLINE",
+        "health": "ok",
+        "reading": {
+          "observed_at": "2026-09-27T12:00:00Z",
+          "age_seconds": 0,
+          "stale_after_seconds": 3,
+          "freshness": "fresh",
+          "last_attempt_at": "2026-09-27T12:00:00Z",
+          "last_attempt_status": "ok",
+          "reason": null
+        },
+        "size_bytes": "532575944704",
+        "allocated_bytes": "3514368",
+        "free_bytes": "532572430336",
+        "capacity_percent": 0.0,
+        "fragmentation_percent": 0.0,
+        "vdevs": [
+          {
+            "id": "vdev:2000003",
+            "parent_id": null,
+            "kind": "root",
+            "allocation_class": "data",
+            "name": "Example vdev 3",
+            "state": "ONLINE",
+            "device_id": null,
+            "errors": {
+              "read": "0",
+              "write": "0",
+              "checksum": "0"
+            }
+          },
+          {
+            "id": "vdev:2000004",
+            "parent_id": "vdev:2000003",
+            "kind": "disk",
+            "allocation_class": "data",
+            "name": "Example vdev 4",
+            "state": "ONLINE",
+            "device_id": "disk:serial:Example device 2:EXAMPLE-SERIAL-2",
+            "errors": {
+              "read": "0",
+              "write": "0",
+              "checksum": "0"
+            }
+          }
+        ],
+        "scan": {
+          "type": "unknown",
+          "state": "unknown",
+          "started_at": null,
+          "finished_at": null,
+          "progress_percent": null,
+          "scanned_bytes": null,
+          "issued_bytes": null,
+          "total_bytes": null,
+          "scan_bytes_per_second": null,
+          "issue_bytes_per_second": null,
+          "eta_seconds": null,
+          "repaired_bytes": null,
+          "errors": null,
+          "raw_text": null
+        },
+        "permanent_errors": {
+          "state": "none",
+          "count": "0",
+          "details_available": false
+        }
+      }
+    ]
+  }
+}

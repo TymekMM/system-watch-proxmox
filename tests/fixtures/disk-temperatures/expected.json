@@ -1,0 +1,264 @@
+{
+  "devices": [
+    {
+      "id": "disk:serial:standby",
+      "identity_stability": "persistent",
+      "path": "/dev/sda",
+      "aliases": [],
+      "model": "Example disk",
+      "serial": "EXAMPLE",
+      "transport": "sas",
+      "media": "hdd",
+      "power_state": "standby",
+      "zfs_membership": "nonmember",
+      "pool_ids": [],
+      "temperature_ids": [
+        "disk:serial:standby:smart:temperature"
+      ],
+      "usage": "unknown"
+    },
+    {
+      "id": "disk:serial:failed",
+      "identity_stability": "persistent",
+      "path": "/dev/sdb",
+      "aliases": [],
+      "model": "Example disk",
+      "serial": "EXAMPLE",
+      "transport": "ata",
+      "media": "hdd",
+      "power_state": "unknown",
+      "zfs_membership": "nonmember",
+      "pool_ids": [],
+      "temperature_ids": [
+        "disk:serial:failed:smart:temperature"
+      ],
+      "usage": "unknown"
+    },
+    {
+      "id": "disk:serial:exception",
+      "identity_stability": "persistent",
+      "path": "/dev/sdc",
+      "aliases": [],
+      "model": "Example disk",
+      "serial": "EXAMPLE",
+      "transport": "sas",
+      "media": "hdd",
+      "power_state": "unknown",
+      "zfs_membership": "nonmember",
+      "pool_ids": [],
+      "temperature_ids": [
+        "disk:serial:exception:smart:temperature"
+      ],
+      "usage": "unknown"
+    },
+    {
+      "id": "disk:serial:nvme-hwmon",
+      "identity_stability": "persistent",
+      "path": "/dev/nvme5n1",
+      "aliases": [],
+      "model": "Example disk",
+      "serial": "EXAMPLE",
+      "transport": "nvme",
+      "media": "ssd",
+      "power_state": "unknown",
+      "zfs_membership": "nonmember",
+      "pool_ids": [],
+      "temperature_ids": [
+        "disk:serial:nvme-hwmon:hwmon:temp1",
+        "disk:serial:nvme-hwmon:hwmon:temp2"
+      ],
+      "usage": "unknown"
+    },
+    {
+      "id": "disk:serial:nvme-smart",
+      "identity_stability": "persistent",
+      "path": "/dev/nvme6n1",
+      "aliases": [],
+      "model": "Example disk",
+      "serial": "EXAMPLE",
+      "transport": "nvme",
+      "media": "ssd",
+      "power_state": "active",
+      "zfs_membership": "nonmember",
+      "pool_ids": [],
+      "temperature_ids": [
+        "disk:serial:nvme-smart:smart:temperature"
+      ],
+      "usage": "unknown"
+    }
+  ],
+  "temperatures": [
+    {
+      "id": "disk:serial:standby:smart:temperature",
+      "label": "Temperature",
+      "category": "disks",
+      "source_id": "smart",
+      "device_id": "disk:serial:standby",
+      "value_celsius": null,
+      "warning_celsius": 45,
+      "critical_celsius": 55,
+      "threshold_origin": "baseline",
+      "health": "unknown",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": null,
+        "age_seconds": null,
+        "stale_after_seconds": 30,
+        "freshness": "unavailable",
+        "last_attempt_at": "2026-09-27T12:00:01Z",
+        "last_attempt_status": "skipped",
+        "reason": "standby"
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    },
+    {
+      "id": "disk:serial:failed:smart:temperature",
+      "label": "Temperature",
+      "category": "disks",
+      "source_id": "smart",
+      "device_id": "disk:serial:failed",
+      "value_celsius": null,
+      "warning_celsius": 45,
+      "critical_celsius": 55,
+      "threshold_origin": "baseline",
+      "health": "unknown",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": null,
+        "age_seconds": null,
+        "stale_after_seconds": 30,
+        "freshness": "unavailable",
+        "last_attempt_at": "2026-09-27T12:00:01Z",
+        "last_attempt_status": "error",
+        "reason": "smartctl_error"
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    },
+    {
+      "id": "disk:serial:exception:smart:temperature",
+      "label": "Temperature",
+      "category": "disks",
+      "source_id": "smart",
+      "device_id": "disk:serial:exception",
+      "value_celsius": null,
+      "warning_celsius": 45,
+      "critical_celsius": 55,
+      "threshold_origin": "baseline",
+      "health": "unknown",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": null,
+        "age_seconds": null,
+        "stale_after_seconds": 30,
+        "freshness": "unavailable",
+        "last_attempt_at": "2026-09-27T12:00:01Z",
+        "last_attempt_status": "error",
+        "reason": "smartctl_failed"
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    },
+    {
+      "id": "disk:serial:nvme-hwmon:hwmon:temp1",
+      "label": "Composite",
+      "category": "nvme",
+      "source_id": "hwmon:nvme",
+      "device_id": "disk:serial:nvme-hwmon",
+      "value_celsius": 66.5,
+      "warning_celsius": 65,
+      "critical_celsius": 75,
+      "threshold_origin": "baseline",
+      "health": "warning",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": "2026-09-27T12:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 30,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-27T12:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    },
+    {
+      "id": "disk:serial:nvme-hwmon:hwmon:temp2",
+      "label": "Sensor 1",
+      "category": "nvme",
+      "source_id": "hwmon:nvme",
+      "device_id": "disk:serial:nvme-hwmon",
+      "value_celsius": null,
+      "warning_celsius": 65,
+      "critical_celsius": 75,
+      "threshold_origin": "baseline",
+      "health": "unknown",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": null,
+        "age_seconds": null,
+        "stale_after_seconds": 30,
+        "freshness": "unavailable",
+        "last_attempt_at": "2026-09-27T12:00:01Z",
+        "last_attempt_status": "error",
+        "reason": "hwmon_unavailable"
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    },
+    {
+      "id": "disk:serial:nvme-smart:smart:temperature",
+      "label": "Temperature",
+      "category": "nvme",
+      "source_id": "smart",
+      "device_id": "disk:serial:nvme-smart",
+      "value_celsius": 75.0,
+      "warning_celsius": 65,
+      "critical_celsius": 75,
+      "threshold_origin": "baseline",
+      "health": "critical",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": "2026-09-27T12:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 30,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-27T12:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "smart",
+      "kind": "smart",
+      "refresh_seconds": 10,
+      "state": "partial",
+      "last_attempt_at": "2026-09-27T12:00:00Z",
+      "last_success_at": null,
+      "duration_ms": null,
+      "error": {
+        "code": "device_read_failed",
+        "message": "2 disk temperature reads failed"
+      }
+    },
+    {
+      "id": "hwmon:nvme",
+      "kind": "hwmon",
+      "refresh_seconds": 1,
+      "state": "partial",
+      "last_attempt_at": "2026-09-27T12:00:00Z",
+      "last_success_at": null,
+      "duration_ms": null,
+      "error": {
+        "code": "channel_read_failed",
+        "message": "At least one NVMe channel was unavailable"
+      }
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "temperature": {
+    "id": "hba:controller0:roc",
+    "label": "HBA ROC",
+    "category": "hba",
+    "source_id": "hba:perccli",
+    "device_id": null,
+    "value_celsius": null,
+    "warning_celsius": 75,
+    "critical_celsius": 85,
+    "threshold_origin": "baseline",
+    "health": "unknown",
+    "legacy_system_member": true,
+    "reading": {
+      "observed_at": null,
+      "age_seconds": null,
+      "stale_after_seconds": 15,
+      "freshness": "unavailable",
+      "last_attempt_at": "2026-09-23T14:00:00Z",
+      "last_attempt_status": "error",
+      "reason": "sensor_unavailable"
+    },
+    "reported_status": null,
+    "source_thresholds_celsius": null
+  },
+  "source": {
+    "id": "hba:perccli",
+    "kind": "perccli",
+    "refresh_seconds": 2,
+    "state": "error",
+    "last_attempt_at": "2026-09-23T14:00:00Z",
+    "last_success_at": null,
+    "duration_ms": null,
+    "error": {
+      "code": "roc_unavailable",
+      "message": "ROC temperature unavailable"
+    }
+  }
+}

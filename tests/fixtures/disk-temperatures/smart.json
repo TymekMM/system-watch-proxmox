@@ -1,0 +1,23 @@
+{
+  "/dev/sda": {
+    "smartctl": {
+      "exit_status": 3
+    },
+    "power_mode": {
+      "name": "STANDBY"
+    }
+  },
+  "/dev/sdb": {
+    "smartctl": {
+      "exit_status": 8
+    }
+  },
+  "/dev/nvme6n1": {
+    "smartctl": {
+      "exit_status": 0
+    },
+    "temperature": {
+      "current": 75
+    }
+  }
+}

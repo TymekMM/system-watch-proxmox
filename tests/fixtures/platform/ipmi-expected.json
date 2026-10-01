@@ -1,0 +1,149 @@
+{
+  "temperatures": [
+    {
+      "id": "ipmi:MB Temp",
+      "label": "MB Temp",
+      "category": "platform",
+      "source_id": "ipmi",
+      "device_id": null,
+      "value_celsius": 52.0,
+      "warning_celsius": 55,
+      "critical_celsius": 70,
+      "threshold_origin": "baseline",
+      "health": "ok",
+      "legacy_system_member": true,
+      "reading": {
+        "observed_at": "2026-09-23T14:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 15,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "reported_status": "ok",
+      "source_thresholds_celsius": {
+        "lower_nonrecoverable": null,
+        "lower_critical": null,
+        "lower_noncritical": null,
+        "upper_noncritical": 50.0,
+        "upper_critical": null,
+        "upper_nonrecoverable": null
+      }
+    },
+    {
+      "id": "ipmi:CPU Temp",
+      "label": "CPU Temp",
+      "category": "platform",
+      "source_id": "ipmi",
+      "device_id": null,
+      "value_celsius": 39.0,
+      "warning_celsius": 75,
+      "critical_celsius": 90,
+      "threshold_origin": "baseline",
+      "health": "ok",
+      "legacy_system_member": true,
+      "reading": {
+        "observed_at": "2026-09-23T14:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 15,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "reported_status": "ok",
+      "source_thresholds_celsius": {
+        "lower_nonrecoverable": null,
+        "lower_critical": null,
+        "lower_noncritical": null,
+        "upper_noncritical": 95.0,
+        "upper_critical": null,
+        "upper_nonrecoverable": null
+      }
+    },
+    {
+      "id": "ipmi:DDR4_D Temp",
+      "label": "DDR4_D Temp",
+      "category": "memory",
+      "source_id": "ipmi",
+      "device_id": null,
+      "value_celsius": null,
+      "warning_celsius": 70,
+      "critical_celsius": 84,
+      "threshold_origin": "baseline",
+      "health": "unknown",
+      "legacy_system_member": true,
+      "reading": {
+        "observed_at": null,
+        "age_seconds": null,
+        "stale_after_seconds": 15,
+        "freshness": "unavailable",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "error",
+        "reason": "sensor_unavailable"
+      },
+      "reported_status": "na",
+      "source_thresholds_celsius": {
+        "lower_nonrecoverable": null,
+        "lower_critical": null,
+        "lower_noncritical": null,
+        "upper_noncritical": 84.0,
+        "upper_critical": 85.0,
+        "upper_nonrecoverable": null
+      }
+    }
+  ],
+  "fans": [
+    {
+      "id": "ipmi:CPU1_FAN1",
+      "label": "CPU1_FAN1",
+      "source_id": "ipmi",
+      "rpm": 2000.0,
+      "reported_status": "ok",
+      "health": "ok",
+      "reading": {
+        "observed_at": "2026-09-23T14:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 15,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "source_thresholds_rpm": {
+        "lower_nonrecoverable": null,
+        "lower_critical": null,
+        "lower_noncritical": 100.0,
+        "upper_noncritical": null,
+        "upper_critical": null,
+        "upper_nonrecoverable": null
+      }
+    },
+    {
+      "id": "ipmi:FRNT_FAN2",
+      "label": "FRNT_FAN2",
+      "source_id": "ipmi",
+      "rpm": null,
+      "reported_status": "na",
+      "health": "unknown",
+      "reading": {
+        "observed_at": null,
+        "age_seconds": null,
+        "stale_after_seconds": 15,
+        "freshness": "unavailable",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "error",
+        "reason": "sensor_unavailable"
+      },
+      "source_thresholds_rpm": {
+        "lower_nonrecoverable": null,
+        "lower_critical": null,
+        "lower_noncritical": 100.0,
+        "upper_noncritical": null,
+        "upper_critical": null,
+        "upper_nonrecoverable": null
+      }
+    }
+  ]
+}

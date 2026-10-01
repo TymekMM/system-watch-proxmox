@@ -1,0 +1,6 @@
+use Fcntl qw(F_GETFD F_SETFD FD_CLOEXEC);
+            { name => 'syslog' },
+__PACKAGE__->register_method({
+    name => 'status',
+    path => 'status',
+});

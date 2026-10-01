@@ -1,0 +1,92 @@
+{
+  "format": 2,
+  "id": "pve-manager-9.2.20-external-ui",
+  "review": "reference-reviewed",
+  "pveManagerVersion": "9.2.20",
+  "files": [
+    {
+      "path": "/usr/share/perl5/PVE/API2/Nodes.pm",
+      "originalSha256": "df97e542b4494513ab50dc23b8a87fb1ba3f0a749b5f4cbfb1f3565e32791fc6",
+      "candidateSha256": "0b2421e30e9c6d0ad2ad93ec9773ab6add2813706f6b324ac0f0ffa390f88e5a",
+      "edits": [
+        {
+          "op": "replace-once",
+          "find": "use Fcntl qw(F_GETFD F_SETFD FD_CLOEXEC);",
+          "with": "use Fcntl qw(F_GETFD F_SETFD FD_CLOEXEC O_RDONLY O_NOFOLLOW);"
+        },
+        {
+          "op": "replace-once",
+          "find": "            { name => 'syslog' },",
+          "with": "            { name => 'syslog' },\n            { name => 'system-watch' },"
+        },
+        {
+          "op": "insert-before-once",
+          "find": "__PACKAGE__->register_method({\n    name => 'status',\n    path => 'status',",
+          "textFile": "system-watch-method.pm.txt"
+        }
+      ]
+    },
+    {
+      "path": "/usr/share/pve-manager/js/pvemanagerlib.js",
+      "originalSha256": "3e3fd5050fff6f40446d162cf4fb0aed6e8789b2e69e2e4e2cb43db644795cd7",
+      "candidateSha256": "cdfdbacd95939bf6ceaeb7f9e71cbd564ac901f00a0f7e3181797a5ca7ccfd33",
+      "edits": [
+        {
+          "op": "replace-once",
+          "find": "        Ext.apply(me, {",
+          "with": "        let systemWatchSlot = Ext.create('PVE.node.SystemWatchSlot', { nodename: nodename });\n\n        Ext.apply(me, {",
+          "region": {
+            "start": "Ext.define('PVE.node.Summary', {",
+            "end": "Ext.define('PVE.node.CreateZFS', {"
+          }
+        },
+        {
+          "op": "replace-once",
+          "find": "                    items: [\n                        nodeStatus,\n",
+          "with": "                    items: [\n                        nodeStatus,\n                        systemWatchSlot,\n",
+          "region": {
+            "start": "Ext.define('PVE.node.Summary', {",
+            "end": "Ext.define('PVE.node.CreateZFS', {"
+          }
+        },
+        {
+          "op": "replace-once",
+          "find": "                    rrdstore.startUpdate();",
+          "with": "                    rrdstore.startUpdate();\n                    systemWatchSlot.startUpdate();",
+          "region": {
+            "start": "Ext.define('PVE.node.Summary', {",
+            "end": "Ext.define('PVE.node.CreateZFS', {"
+          }
+        },
+        {
+          "op": "replace-once",
+          "find": "                destroy: function () {",
+          "with": "                deactivate: function () {\n                    systemWatchSlot.stopUpdate();\n                },\n                destroy: function () {",
+          "region": {
+            "start": "Ext.define('PVE.node.Summary', {",
+            "end": "Ext.define('PVE.node.CreateZFS', {"
+          }
+        },
+        {
+          "op": "replace-once",
+          "find": "                    rrdstore.stopUpdate();",
+          "with": "                    rrdstore.stopUpdate();\n                    systemWatchSlot.stopUpdate();",
+          "region": {
+            "start": "Ext.define('PVE.node.Summary', {",
+            "end": "Ext.define('PVE.node.CreateZFS', {"
+          }
+        },
+        {
+          "op": "insert-before-region-start",
+          "textFile": "system-watch-bridge.js",
+          "trimTrailingWhitespace": true,
+          "appendNewline": true,
+          "region": {
+            "start": "Ext.define('PVE.node.Summary', {",
+            "end": "Ext.define('PVE.node.CreateZFS', {"
+          }
+        }
+      ]
+    }
+  ]
+}

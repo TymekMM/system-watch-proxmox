@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.0.0-draft.2",
+  "snapshot": {
+    "hostname": "example-host",
+    "generated_at": "2026-09-23T14:00:00Z",
+    "collector_version": "design-fixture",
+    "instance_id": "example-process-1",
+    "sequence": 1
+  },
+  "system": {
+    "uptime_seconds": 12345,
+    "load_averages": [
+      1.2,
+      1.1,
+      0.9
+    ]
+  },
+  "health": {
+    "system": {
+      "state": "ok",
+      "coverage": "complete",
+      "reason_codes": []
+    },
+    "system_policy": "legacy-v3-temperature-scope",
+    "zfs": {
+      "state": "ok",
+      "coverage": "complete",
+      "reason_codes": []
+    },
+    "hottest_temperature_id": "ipmi:CPU Temp"
+  },
+  "sources": [
+    {
+      "id": "ipmi",
+      "kind": "ipmi",
+      "refresh_seconds": 5,
+      "state": "ok",
+      "last_attempt_at": "2026-09-23T14:00:00Z",
+      "last_success_at": "2026-09-23T14:00:00Z",
+      "duration_ms": 20,
+      "error": null
+    },
+    {
+      "id": "smart",
+      "kind": "smart",
+      "refresh_seconds": 10,
+      "state": "ok",
+      "last_attempt_at": "2026-09-23T14:00:00Z",
+      "last_success_at": "2026-09-23T14:00:00Z",
+      "duration_ms": 20,
+      "error": null
+    },
+    {
+      "id": "zfs",
+      "kind": "zfs",
+      "refresh_seconds": 1,
+      "state": "ok",
+      "last_attempt_at": "2026-09-23T14:00:00Z",
+      "last_success_at": "2026-09-23T14:00:00Z",
+      "duration_ms": 20,
+      "error": null
+    },
+    {
+      "id": "system",
+      "kind": "system",
+      "refresh_seconds": 1,
+      "state": "ok",
+      "last_attempt_at": "2026-09-23T14:00:00Z",
+      "last_success_at": "2026-09-23T14:00:00Z",
+      "duration_ms": 20,
+      "error": null
+    },
+    {
+      "id": "inventory",
+      "kind": "inventory",
+      "refresh_seconds": 60,
+      "state": "ok",
+      "last_attempt_at": "2026-09-23T14:00:00Z",
+      "last_success_at": "2026-09-23T14:00:00Z",
+      "duration_ms": 20,
+      "error": null
+    }
+  ],
+  "temperatures": [
+    {
+      "id": "ipmi:CPU Temp",
+      "label": "CPU",
+      "category": "platform",
+      "source_id": "ipmi",
+      "device_id": null,
+      "value_celsius": 39,
+      "warning_celsius": 75,
+      "critical_celsius": 90,
+      "threshold_origin": "baseline",
+      "health": "ok",
+      "legacy_system_member": true,
+      "reading": {
+        "observed_at": "2026-09-23T14:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 30,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "reported_status": "ok",
+      "source_thresholds_celsius": {
+        "lower_nonrecoverable": null,
+        "lower_critical": null,
+        "lower_noncritical": null,
+        "upper_noncritical": 95,
+        "upper_critical": null,
+        "upper_nonrecoverable": null
+      }
+    },
+    {
+      "id": "smart:example-a:temperature",
+      "label": "Pool HDD",
+      "category": "disks",
+      "source_id": "smart",
+      "device_id": "disk:example-a",
+      "value_celsius": 35,
+      "warning_celsius": 45,
+      "critical_celsius": 55,
+      "threshold_origin": "baseline",
+      "health": "ok",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": "2026-09-23T14:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 30,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    },
+    {
+      "id": "smart:example-b:temperature",
+      "label": "Other HDD",
+      "category": "disks",
+      "source_id": "smart",
+      "device_id": "disk:example-b",
+      "value_celsius": 32,
+      "warning_celsius": 45,
+      "critical_celsius": 55,
+      "threshold_origin": "baseline",
+      "health": "unknown",
+      "legacy_system_member": false,
+      "reading": {
+        "observed_at": "2026-09-23T13:55:00Z",
+        "age_seconds": 300,
+        "stale_after_seconds": 30,
+        "freshness": "stale",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "skipped",
+        "reason": "standby"
+      },
+      "reported_status": null,
+      "source_thresholds_celsius": null
+    }
+  ],
+  "fans": [
+    {
+      "id": "ipmi:CPU1_FAN1",
+      "label": "CPU1_FAN1",
+      "source_id": "ipmi",
+      "rpm": 2000,
+      "reported_status": "ok",
+      "health": "ok",
+      "reading": {
+        "observed_at": "2026-09-23T14:00:00Z",
+        "age_seconds": 0,
+        "stale_after_seconds": 30,
+        "freshness": "fresh",
+        "last_attempt_at": "2026-09-23T14:00:00Z",
+        "last_attempt_status": "ok",
+        "reason": null
+      },
+      "source_thresholds_rpm": {
+        "lower_nonrecoverable": null,
+        "lower_critical": null,
+        "lower_noncritical": 100,
+        "upper_noncritical": null,
+        "upper_critical": null,
+        "upper_nonrecoverable": null
+      }
+    }
+  ],
+  "devices": [
+    {
+      "id": "disk:example-a",
+      "identity_stability": "persistent",
+      "path": "/dev/sda",
+      "aliases": [
+        "/dev/disk/by-id/wwn-example-a"
+      ],
+      "model": "Example HDD",
+      "serial": "EXAMPLE-A",
+      "transport": "ata",
+      "media": "hdd",
+      "power_state": "active",
+      "zfs_membership": "member",
+      "pool_ids": [
+        "zpool:1001"
+      ],
+      "temperature_ids": [
+        "smart:example-a:temperature"
+      ],
+      "usage": "unknown"
+    },
+    {
+      "id": "disk:example-b",
+      "identity_stability": "persistent",
+      "path": "/dev/sdb",
+      "aliases": [
+        "/dev/disk/by-id/wwn-example-b"
+      ],
+      "model": "Example HDD",
+      "serial": "EXAMPLE-B",
+      "transport": "ata",
+      "media": "hdd",
+      "power_state": "standby",
+      "zfs_membership": "nonmember",
+      "pool_ids": [],
+      "temperature_ids": [
+        "smart:example-b:temperature"
+      ],
+      "usage": "unknown"
+    }
+  ],
+  "zfs": {
+    "inventory_state": "ok",
+    "pool_count": 1,
+    "pools": [
+      {
+        "id": "zpool:1001",
+        "name": "example-pool",
+        "state": "ONLINE",
+        "health": "ok",
+        "reading": {
+          "observed_at": "2026-09-23T14:00:00Z",
+          "age_seconds": 0,
+          "stale_after_seconds": 30,
+          "freshness": "fresh",
+          "last_attempt_at": "2026-09-23T14:00:00Z",
+          "last_attempt_status": "ok",
+          "reason": null
+        },
+        "allocated_bytes": "400000000000",
+        "size_bytes": "1000000000000",
+        "free_bytes": "600000000000",
+        "capacity_percent": 40,
+        "fragmentation_percent": 12,
+        "vdevs": [
+          {
+            "id": "vdev:1000",
+            "parent_id": null,
+            "kind": "root",
+            "allocation_class": "data",
+            "name": "example-pool",
+            "state": "ONLINE",
+            "device_id": null,
+            "errors": {
+              "read": "0",
+              "write": "0",
+              "checksum": "0"
+            }
+          },
+          {
+            "id": "vdev:1002",
+            "parent_id": "vdev:1000",
+            "kind": "disk",
+            "allocation_class": "data",
+            "name": "/dev/disk/by-id/wwn-example-a-part1",
+            "state": "ONLINE",
+            "device_id": "disk:example-a",
+            "errors": {
+              "read": "0",
+              "write": "0",
+              "checksum": "0"
+            }
+          }
+        ],
+        "scan": {
+          "type": "scrub",
+          "state": "running",
+          "started_at": "2026-09-23T13:00:00Z",
+          "finished_at": null,
+          "progress_percent": 25,
+          "scanned_bytes": "250000000000",
+          "issued_bytes": "200000000000",
+          "total_bytes": "800000000000",
+          "scan_bytes_per_second": 80000000,
+          "issue_bytes_per_second": 60000000,
+          "eta_seconds": 10000,
+          "repaired_bytes": "0",
+          "errors": "0",
+          "raw_text": null
+        },
+        "permanent_errors": {
+          "state": "none",
+          "count": "0",
+          "details_available": false
+        }
+      }
+    ]
+  }
+}

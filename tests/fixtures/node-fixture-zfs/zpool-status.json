@@ -1,0 +1,70 @@
+{
+  "output_version": {
+    "vers_major": 0,
+    "vers_minor": 1
+  },
+  "pools": {
+    "Example pool 1": {
+      "name": "Example pool 1",
+      "state": "ONLINE",
+      "pool_guid": "1000001",
+      "error_count": "0",
+      "vdevs": {
+        "example-vdev-1": {
+          "name": "Example vdev 1",
+          "guid": "2000001",
+          "vdev_type": "root",
+          "class": "normal",
+          "state": "ONLINE",
+          "read_errors": "0",
+          "write_errors": "0",
+          "checksum_errors": "0",
+          "vdevs": {
+            "example-vdev-2": {
+              "name": "Example vdev 2",
+              "guid": "2000002",
+              "vdev_type": "disk",
+              "path": "/dev/disk/by-id/example-drive-2-part1",
+              "class": "normal",
+              "state": "ONLINE",
+              "read_errors": "0",
+              "write_errors": "0",
+              "checksum_errors": "0"
+            }
+          }
+        }
+      }
+    },
+    "Example pool 2": {
+      "name": "Example pool 2",
+      "state": "ONLINE",
+      "pool_guid": "1000002",
+      "error_count": "0",
+      "vdevs": {
+        "example-vdev-3": {
+          "name": "Example vdev 3",
+          "guid": "2000003",
+          "vdev_type": "root",
+          "class": "normal",
+          "state": "ONLINE",
+          "read_errors": "0",
+          "write_errors": "0",
+          "checksum_errors": "0",
+          "vdevs": {
+            "example-vdev-4": {
+              "name": "Example vdev 4",
+              "guid": "2000004",
+              "vdev_type": "disk",
+              "path": "/dev/disk/by-id/example-drive-4-part1",
+              "class": "normal",
+              "state": "ONLINE",
+              "read_errors": "0",
+              "write_errors": "0",
+              "checksum_errors": "0"
+            }
+          }
+        }
+      }
+    }
+  }
+}

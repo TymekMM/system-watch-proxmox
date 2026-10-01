@@ -1,0 +1,5 @@
+MB Temp          | 52.000 | degrees C | ok | na | na | na | 50.000 | na | na
+CPU Temp         | 39.000 | degrees C | ok | na | na | na | 95.000 | na | na
+DDR4_D Temp      | na     | degrees C | na | na | na | na | 84.000 | 85.000 | na
+CPU1_FAN1        | 2000.000 | RPM | ok | na | na | 100.000 | na | na | na
+FRNT_FAN2        | na | RPM | na | na | na | 100.000 | na | na | na

@@ -1,0 +1,23 @@
+[Unit]
+Description=System Watch Proxmox snapshot collector
+After=local-fs.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+Environment=DOTNET_BUNDLE_EXTRACT_BASE_DIR=/run/system-watch-proxmox/.net
+ExecStart=/opt/system-watch-proxmox/worker/SystemWatch.Worker --watch --output /run/system-watch-proxmox/snapshot.json --allow-live-output --expected-host @HOSTNAME@
+RuntimeDirectory=system-watch-proxmox
+RuntimeDirectoryMode=0700
+UMask=0077
+Restart=on-failure
+RestartSec=3s
+NoNewPrivileges=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/run/system-watch-proxmox
+
+[Install]
+WantedBy=multi-user.target

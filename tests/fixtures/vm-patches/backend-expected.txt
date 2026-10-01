@@ -1,0 +1,70 @@
+use Fcntl qw(F_GETFD F_SETFD FD_CLOEXEC O_RDONLY O_NOFOLLOW);
+            { name => 'syslog' },
+            { name => 'system-watch' },
+__PACKAGE__->register_method({
+    name => 'system_watch',
+    path => 'system-watch',
+    method => 'GET',
+    permissions => {
+        check => ['perm', '/nodes/{node}', ['Sys.Audit']],
+    },
+    description => "Read the latest cached system-watch hardware snapshot",
+    proxyto => 'node',
+    protected => 1,
+    parameters => {
+        additionalProperties => 0,
+        properties => {
+            node => get_standard_option('pve-node'),
+        },
+    },
+    returns => {
+        type => 'object',
+        additionalProperties => 1,
+        properties => {},
+    },
+    code => sub {
+        my ($param) = @_;
+        my $local_node = PVE::INotify::nodename();
+        die "system-watch snapshot unavailable\n"
+            if $param->{node} ne $local_node && $param->{node} ne 'localhost';
+
+        my $file = '/run/system-watch-proxmox/snapshot.json';
+        my $bad = "system-watch snapshot unavailable\n";
+        sysopen(my $fh, $file, O_RDONLY | O_NOFOLLOW) or die $bad;
+        my @stat = stat($fh);
+        if (!@stat || !-f $fh || $stat[4] != 0 || ($stat[2] & 0077) || $stat[7] > 2_097_152) {
+            close($fh);
+            die $bad;
+        }
+        my $raw = '';
+        while (length($raw) <= 2_097_152) {
+            my $bytes = sysread($fh, my $chunk, 65_536);
+            if (!defined($bytes)) {
+                close($fh);
+                die $bad;
+            }
+            last if !$bytes;
+            $raw .= $chunk;
+        }
+        close($fh);
+        die $bad if length($raw) > 2_097_152;
+
+        my $data = eval { decode_json($raw) };
+        die $bad if $@ || ref($data) ne 'HASH';
+        die $bad if ($data->{schema_version} // '') ne '1.0.0-draft.2';
+        my $header = $data->{snapshot};
+        die $bad if ref($header) ne 'HASH' || ($header->{hostname} // '') ne $local_node;
+        my $at = $header->{generated_at} // '';
+        my ($y, $mo, $d, $h, $mi, $s) =
+            $at =~ /\A(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d+)?Z\z/;
+        die $bad if !defined($s);
+        my $age = time() - timegm_nocheck($s, $mi, $h, $d, $mo - 1, $y);
+        die $bad if $age > 10 || $age < -5;
+        return $data;
+    },
+});
+
+__PACKAGE__->register_method({
+    name => 'status',
+    path => 'status',
+});

@@ -1,0 +1,4 @@
+{
+  "/dev/disk/by-id/example-drive-2-part1": "/dev/sdc1",
+  "/dev/disk/by-id/example-drive-4-part1": "/dev/sdb1"
+}
