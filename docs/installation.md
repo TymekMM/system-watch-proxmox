@@ -1,5 +1,7 @@
 # Installation
 
+For a complete walkthrough with commands, example output and explanations, see the [beginner tutorial](beginners-guide.md).
+
 ## Requirements
 
 - A reviewed Proxmox VE build, Linux x64, and root access on the monitored node.

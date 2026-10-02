@@ -1,5 +1,7 @@
 # Updates
 
+For a complete walkthrough with commands, example output and explanations, see the [beginner tutorial](beginners-guide.md).
+
 The small Proxmox bridge loads the separate GUI asset. UI/worker updates therefore do not repatch Proxmox files. Use the recipe currently recorded in the installation manifest and a manager compatible with it. After successful upgrade repair, use the new recipe. Repair preserves the installed UI and worker versions; update them separately when desired.
 
 Run as root. Set `release_dir`, `recipe`, and `node_name` as in the installation guide. Download and verify the candidate package first. Its `SHA256SUMS` provides the expected asset hashes.

@@ -52,7 +52,7 @@ The initial recipes cover these reviewed `pve-manager` builds on Linux x64:
 | Version | Reviewed running build | Live validation |
 | --- | --- | --- |
 | 9.2.10 | `43df2e01f27a1a19` | Installation, worker/API, and GUI |
-| 9.2.20 | `49318c671b82f31e` | Installation, removal with verified original restoration, reinstallation, worker/API, and GUI |
+| 9.2.20 | `49318c671b82f31e` | Installation, worker-only update, removal with verified original restoration, reinstallation, worker/API, and GUI |
 | 9.2.21 | `4f6e0ac86f9e8c7f` | Upgrade repair from 9.2.10, worker/API, GUI, and UI-only update |
 
 The installer also checks exact original file hashes and patch anchors. A matching version number alone is insufficient. Other builds are refused until a recipe has been reviewed. See [recipes](profiles/README.md).
@@ -63,10 +63,13 @@ A real 9.2.10 → 9.2.21 upgrade replaced both hooks while leaving the collector
 
 Use a release package from [GitHub Releases](https://github.com/TymekMM/system-watch-proxmox/releases), when available, or [build from source](docs/development.md). A self-contained package does not require .NET on the Proxmox host.
 
+New to Linux or Proxmox? Start with the [step-by-step install, update and uninstall tutorial](docs/beginners-guide.md), including example output and explanations.
+
 Follow the [installation guide](docs/installation.md): verify the package checksum, inspect a read-only plan, then install. Installation patches two Proxmox files and restarts `pvedaemon` and `pveproxy`; schedule it appropriately and keep SSH access available.
 
 ## Documentation
 
+- [Beginner tutorial: download, install, check, update and uninstall](docs/beginners-guide.md)
 - [AI assistant operations guide](AGENTS.md)
 
 - [Installation, status, and removal](docs/installation.md)

@@ -37,6 +37,8 @@ Self-contained publish includes native libraries in the executable for extractio
 
 The regression suite covers install/remove, GUI and worker updates, upgrade repair, rejection of unknown bytes, and restoration after simulated failures. Live preview installation and GUI updates were verified on the reviewed 9.2.20 build. Live upgrade repair from 9.2.10 to 9.2.21 and a subsequent GUI update were verified on a real host; see the [validation record](recipe-9.2.21-review.md).
 
-The GitHub-source 1.0.0-rc.1 package was also removed and reinstalled on the reviewed 9.2.20 test VM. Both restored vendor originals matched the recipe hashes; status was clean with retained backups, and the operator confirmed the GUI after reinstallation. Clean installation and live removal on 9.2.21 remain untested. Recipe compatibility still requires exact hashes, not just a matching version number.
+The GitHub-source 1.0.0-rc.1 package was also removed and reinstalled on the reviewed 9.2.20 test VM. Both restored vendor originals matched the recipe hashes; status was clean with retained backups, and the operator confirmed the GUI after reinstallation. On 2026-10-02, the public rc.2 package was downloaded from GitHub and its archive/internal checksums verified on the reviewed 9.2.20 test VM. A worker-only update from rc.1, removal with byte-for-byte original/backup comparisons, and rc.2 reinstallation all passed. The installer verified the worker/API; status was file-complete and the service active/enabled. The [beginner tutorial](beginners-guide.md) documents this route with generic node names and representative output.
+
+Clean installation and live removal on 9.2.21 remain untested. Recipe compatibility still requires exact hashes, not just a matching version number.
 
 The public source excludes the historical terminal monitor. Its development history is retained separately from the GitHub release source.

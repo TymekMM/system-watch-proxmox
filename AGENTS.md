@@ -4,6 +4,11 @@ This file helps AI assistants operate and develop this repository. Read
 [installation](docs/installation.md), [updates](docs/updates.md), and
 [troubleshooting](docs/troubleshooting.md) before suggesting host changes.
 Use one logical command group at a time and inspect its result before continuing.
+For readers new to Linux, use the [beginner tutorial](docs/beginners-guide.md).
+Explain where each command runs, restore variables after reconnecting, distinguish
+representative output from live results, and stop after a failed check. Select an
+actual release from the Releases page; do not assume the latest-stable download
+endpoint includes prereleases.
 
 ## Operating rules
 
