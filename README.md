@@ -54,6 +54,7 @@ The initial recipes cover these reviewed `pve-manager` builds on Linux x64:
 | 9.2.10 | `43df2e01f27a1a19` | Installation, worker/API, and GUI |
 | 9.2.20 | `49318c671b82f31e` | Installation, worker-only update, removal with verified original restoration, reinstallation, worker/API, and GUI |
 | 9.2.21 | `4f6e0ac86f9e8c7f` | Upgrade repair from 9.2.10, worker/API, GUI, and UI-only update |
+| 9.2.26 | `41a0e2e09b9e6f9d` | Upgrade repair from 9.2.21, worker/API, and GUI; [validation record](docs/recipe-9.2.26-review.md) |
 
 The installer also checks exact original file hashes and patch anchors. A matching version number alone is insufficient. Other builds are refused until a recipe has been reviewed. See [recipes](profiles/README.md).
 

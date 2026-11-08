@@ -23,7 +23,7 @@ This is an integrity check, not a digital signature. Obtain recipes from a trust
 
 ## Reviewing another build
 
-Work from pristine matching vendor files on a disposable test node. Copy a recipe, update its version/identity and scoped anchors, set `review` to `draft`, and set candidate hashes to `null`. The renderer accepts numeric `major.minor.patch` recipe versions; shipped recipes cover the reviewed 9.2.10, 9.2.20, and 9.2.21 builds.
+Work from pristine matching vendor files on a disposable test node. Copy a recipe, update its version/identity and scoped anchors, set `review` to `draft`, and set candidate hashes to `null`. The renderer accepts numeric `major.minor.patch` recipe versions; see the [compatibility table](../README.md#compatibility) for reviewed builds.
 
 ```bash
 ./bin/SystemWatch.Management review-recipe   --file /absolute/path/to/draft.json --expected-host "$(hostname -s)"
@@ -32,3 +32,5 @@ Work from pristine matching vendor files on a disposable test node. Copy a recip
 Review output diffs, syntax, authentication, freshness, and browser integration. Record the returned whole-file candidate hashes and set `review` to `reference-reviewed` only after validation. Drafts never authorize installation. Run fixture tests and a read-only installation plan before a supervised trial.
 
 The 9.2.10 and 9.2.20 original/candidate hashes are unchanged from the tested private release. The 9.2.21 recipe reuses the same edit rules with its own frontend original/candidate hashes; see [live validation](../docs/recipe-9.2.21-review.md). New recipes do not require recompiling the C# executable when they use the supported targets and edit operations.
+
+The 9.2.26 recipe reuses the same edit rules and shared snippets with new backend and frontend hashes; see the [upgrade repair validation](../docs/recipe-9.2.26-review.md).
